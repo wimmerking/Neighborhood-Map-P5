@@ -16,24 +16,18 @@
 				<h1>Local East Bay Coffee Shops</h1>
 				<div id="map"></div>
 			</div>
-
- 	<div class="row" id="sidebar-wrapper">
-     	<div class="collapse in col-md-3 col-sm-12 col-xs-12" id="sidebar">
-
-
-					    <input type="text" class="form-control" placeholder="Search For Coffee shops">
-
-					    <button type="submit" class="btn btn-primary btn-sm" data="text:$ data.name, click $parent.select">Find</button>
-					    <br/><br/>
-			        	<ul data-bind="foreach: locations" class="list-group" >
+     	<div class="col-md-3">
+						<input type="text" class="form-control" placeholder="Search For Coffee shops">
+						<button type="submit" class="btn btn-primary btn-sm" data="text:$ data.name, click $parent.select">Find</button>
+			        	<ul data-bind="foreach: locations" class="list-group">
 				            <li class="list-group-item">
 				            	<span data-bind="text: $data"> </span>
 				            </li>
 			        	</ul>
 	       		</div>
+	       	</div>
 				</div>
-	</div>
-</div>
+
 
 
 
@@ -42,6 +36,6 @@
 <script src="js/app.js"></script>
 <script src="js/jquery-1.12.1.min.js"></script>
 <script src="js/knockout-3.4.0.js"></script>
-<script defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDQXseDaVUdm0YzN0vUH1yUCAX_B1rBN54&callback=initMap"></script>
+<script defer src = "https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 </html>
 

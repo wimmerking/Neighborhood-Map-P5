@@ -63,13 +63,28 @@ locations: [
 			//console.log(model[key][i].loc);
 			var marker = new google.maps.Marker({
 		    position: model[key][i].loc,
-		    map: map,
-		    title: 'Hello World!'
+		    animation:google.maps.Animation.DROP,
+		    map: map
 			});
 			marker.setMap(map);
+			marker.addListener('click', toggleBounce);
+
 		}
 	});
-};
+	}
+
+var toggleBounce =function(marker) {
+     if (marker.getAnimation() !== null) {
+         marker.setAnimation(null);
+     } else {
+         marker.setAnimation(google.maps.Animation.BOUNCE);
+         setTimeout(function() {
+             marker.setAnimation(null);
+         }, 1250);
+     }
+ };
+ toggleBounce()
+
 
 function locationList(){
  	var i = 0;
@@ -79,12 +94,10 @@ function locationList(){
 			for(i=0; i<length; i++){
 				eachLocation = model[key][i].name;
 				locations.push(eachLocation);
-				eachLocation
-
 			}
 	});
 	return locations;
-};
+}
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -93,5 +106,5 @@ function locationList(){
         });
 
         ko.applyBindings (new ViewModel());
-      };
+      }
       //37.771799, -122.176620
